@@ -2,19 +2,25 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { ConnectedCaregivers } from "./Caregivers";
+import "./Styles.css";
 
 const Dashboard = ({ groups, recommended, caregivers }) => (
-  <div>
+  <div className="container">
     <h2>Welcome Sam</h2>
     <br />
     <div>
       <h4>Recommended Caregivers Near You</h4>
       <div className="row">
         {recommended.map((recommendedItem) => (
-          <div className="col" key={recommendedItem.id}>
+          <div
+            className="col card p-2 mt-2 ml-3"
+            style={{ textAlign: "center" }}
+            key={recommendedItem.id}
+          >
             <strong>{recommendedItem.name}</strong>
-
-            <p>{recommendedItem.employeeName}</p>
+            <Link to={`/caregivers/${recommendedItem.employeeID}`}>
+              <p>{recommendedItem.employeeName}</p>
+            </Link>
           </div>
         ))}
       </div>
@@ -28,7 +34,12 @@ const Dashboard = ({ groups, recommended, caregivers }) => (
       <button>All Caregivers</button>
       <br />
       {groups.map((group) => (
-        <ConnectedCaregivers key={group.id} id={group.id} name={group.name} className="col"/>
+        <ConnectedCaregivers
+          key={group.id}
+          id={group.id}
+          name={group.name}
+          className="col"
+        />
       ))}
     </div>
   </div>

@@ -7,7 +7,9 @@ const Caregivers = ({ name, caregivers }) => (
     <h5>List of All Caregivers - {name}</h5>
     <div>
       {caregivers.map((caregiver) => (
-        <div key={caregiver.id}>{caregiver.name}</div>
+        <Link to={`/caregivers/${caregiver.id}`} key={caregiver.id}>
+          <div>{caregiver.name}</div>
+        </Link>
       ))}
     </div>
   </div>
