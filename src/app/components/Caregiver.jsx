@@ -135,22 +135,22 @@ const Caregiver = ({ caregiver, idClicked, ratingStats }) => {
     </div>
   );
 };
-//const mapStateToProps = (state) => state;
+
 const mapStateToProps = (state, ownProps) => {
   let idClicked = ownProps.match.params.id;
   let caregiver = state.caregivers.find(
     (caregiver) => caregiver.id == idClicked
   );
-  console.log(state.reviews);
+  //console.log(state.reviews);
   let ratingStats;
   for (let i = 0; i < state.reviews.length; i++) {
-    console.log(state.reviews[i].isLiked);
+    //console.log(state.reviews[i].isLiked);
     state.reviews[i].owners.includes(idClicked)
       ? (ratingStats = state.reviews[i].isLiked)
       : null;
   }
   // = state.reviews.goodOwners.includes(idClicked);
-  console.log(caregiver, ratingStats);
+  //console.log(caregiver, ratingStats);
   return {
     caregiver,
     idClicked,

@@ -81,7 +81,7 @@ const Dashboard = ({ groups, recommended, caregivers }) => {
 };
 
 function mapStateToProps(state) {
-  console.log(state.recommended);
+  //console.log(state.recommended);
   return {
     recommended: state.recommended,
     caregivers: state.caregivers,
