@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import { defaultState } from "../../server/defaultState";
+import { defaultState } from "../../mockApi/defaultState";
 
 export const store = createStore(function reducer(
   state = defaultState,

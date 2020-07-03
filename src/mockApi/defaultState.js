@@ -1,8 +1,8 @@
-export const defaultState = {
+const defaultState = {
   user: [
     {
       id: "U01",
-      name: "Danny",
+      name: "Sam",
     },
   ],
   recommended: [
@@ -16,7 +16,7 @@ export const defaultState = {
     {
       name: "Professional",
       id: "L2",
-      employee: "C4",
+      employeeID: "C4",
       employeeName: "Jas",
       owner: "U01",
     },
@@ -37,7 +37,7 @@ export const defaultState = {
       group: "G2",
       badges: {
         safety: "Q1",
-        health: "H2",
+        health: "H1",
       },
     },
     {
@@ -46,7 +46,7 @@ export const defaultState = {
       group: "G1",
       badges: {
         safety: "Q2",
-        health: "H3",
+        health: "H1",
       },
     },
     {
@@ -63,8 +63,8 @@ export const defaultState = {
       id: "C5",
       group: "G2",
       badges: {
-        safety: "Q1",
-        health: "H2",
+        safety: "Q3",
+        health: "H1",
       },
     },
   ],
@@ -92,21 +92,21 @@ export const defaultState = {
     {
       name: "Keep me company",
       id: "T01",
-      owner: "C1",
+      owner: "C3",
       status: "S02",
       category: "G01",
     },
     {
       name: "Fill Prescription",
       id: "T02",
-      owner: "U01",
+      owner: "C4",
       status: "S01",
       groups: "G02",
     },
     {
       name: "Grocery Run",
       id: "T03",
-      owner: "U01",
+      owner: "C1",
       status: "S02",
       groups: "G02",
     },
@@ -152,3 +152,4 @@ export const defaultState = {
     },
   ],
 };
+module.exports = { defaultState };

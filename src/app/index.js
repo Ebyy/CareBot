@@ -4,15 +4,14 @@ import { Main } from "./components/Main";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faHome,
-  faAward,
-  faTrophy,
-  faTimesCircle,
+  faThumbsUp,
+  faThumbsDown,
   faSync,
   faHeart,
   faHeartBroken,
 } from "@fortawesome/free-solid-svg-icons";
 
 //App url: proplanner-app.herokuapp.com
-library.add(faAward, faTrophy, faTimesCircle, faSync, faHeart, faHeartBroken);
+library.add(faSync, faHeart, faHeartBroken, faThumbsDown, faThumbsUp);
 
 ReactDOM.render(<Main />, document.getElementById("app"));
