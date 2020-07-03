@@ -2,22 +2,18 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Popover, PopoverBody, PopoverHeader } from "reactstrap";
-import Assgard from "../images/assgard.jpg";
+import { Popover, PopoverBody, PopoverHeader, Button } from "reactstrap";
+import Assard from "../images/assgard.jpg";
 import John from "../images/John.jpg";
 import Jane from "../images/Jane.jpg";
 import Ollie from "../images/Ollie.jpg";
 import Unknown from "../images/Unknown-person.gif";
 import "./Styles.css";
 
-
 /** View Caregiver Profile
- * 
+ *
  *  - contains caregiver information and badges to encourage user trust
  */
-
-
-
 
 const Caregiver = ({ caregiver, idClicked, ratingStats }) => {
   //Handle Badge Info Pop up
@@ -27,11 +23,11 @@ const Caregiver = ({ caregiver, idClicked, ratingStats }) => {
   const validateHealth = () => {
     let badge;
     if (caregiver.badges.health == "H1") {
-      badge = <FontAwesomeIcon icon="thumbs-up" />;
+      badge = <FontAwesomeIcon icon="thumbs-up" size="2x" />;
     } else if (caregiver.badges.health == "H2") {
-      badge = <FontAwesomeIcon icon="sync" />;
+      badge = <FontAwesomeIcon icon="sync" size="2x" />;
     } else if (caregiver.badges.health == "H3") {
-      badge = <FontAwesomeIcon icon="thumbs-down" />;
+      badge = <FontAwesomeIcon icon="thumbs-down" size="2x" />;
     }
     return badge;
   };
@@ -39,11 +35,11 @@ const Caregiver = ({ caregiver, idClicked, ratingStats }) => {
   const validateSafetyCheck = () => {
     let badge;
     if (caregiver.badges.safety == "Q1") {
-      badge = <FontAwesomeIcon icon="thumbs-up" />;
+      badge = <FontAwesomeIcon icon="thumbs-up" size="2x" />;
     } else if (caregiver.badges.safety == "Q2") {
-      badge = <FontAwesomeIcon icon="sync" />;
+      badge = <FontAwesomeIcon icon="sync" size="2x" />;
     } else if (caregiver.badges.safety == "Q3") {
-      badge = <FontAwesomeIcon icon="thumbs-down" />;
+      badge = <FontAwesomeIcon icon="thumbs-down" size="2x" />;
     }
     return badge;
   };
@@ -57,7 +53,7 @@ const Caregiver = ({ caregiver, idClicked, ratingStats }) => {
       case "C3":
         return Ollie;
       case "C5":
-        return Assgard;
+        return Assard;
       default:
         return Unknown;
     }
@@ -65,16 +61,26 @@ const Caregiver = ({ caregiver, idClicked, ratingStats }) => {
   return (
     <div className="container">
       <div className="gallery">
-        <img src={getPhoto(idClicked)} alt="staff photo" />
+        <img
+          src={getPhoto(idClicked)}
+          alt="staff photo"
+          width="600"
+          height="400"
+        />
       </div>
-      <div className="card">
-        <div>Name: {caregiver.name}</div>
+      <div className="col-6 card">
+        <div className="formDetails">
+          <strong>
+            Name: <span style={{ fontSize: "1.5em" }}>{caregiver.name}</span>
+          </strong>
+        </div>
         <div
+          className="formDetails"
           onMouseEnter={() => setSafeBadgeInfoOn(true)}
           onMouseLeave={() => setSafeBadgeInfoOn(false)}
           id={"Badge1"}
         >
-          Health Badge: {validateHealth()}
+          <strong>Safety Badge:</strong> {validateHealth()}
         </div>
         {safeBadgeInfoOn && (
           <Popover
@@ -87,12 +93,12 @@ const Caregiver = ({ caregiver, idClicked, ratingStats }) => {
           </Popover>
         )}
         <div
-          className="healthCheck"
+          className="formDetails"
           onMouseEnter={() => setHealthBadgeInfoOn(true)}
           onMouseLeave={() => setHealthBadgeInfoOn(false)}
           id={"Badge2"}
         >
-          Safety Badge: {validateSafetyCheck()}
+          <strong>Health Badge:</strong> {validateSafetyCheck()}
         </div>
         {healthBadgeInfoOn && (
           <Popover
@@ -104,19 +110,27 @@ const Caregiver = ({ caregiver, idClicked, ratingStats }) => {
             <PopoverBody>Covid-19 Negative</PopoverBody>
           </Popover>
         )}
-        <div>
-          Rating:{" "}
+        <div className="formDetails">
+          <strong>Rating:</strong>{" "}
           {ratingStats == "true" ? (
-            <FontAwesomeIcon icon="heart" />
+            <FontAwesomeIcon icon="heart" size="2x" />
           ) : (
-            <FontAwesomeIcon icon="heart-broken" />
+            <FontAwesomeIcon icon="heart-broken" size="2x" />
           )}
         </div>
         <br />
-        <button>Book</button>
-        <Link to={"/dashboard"}>
-          <button>Exit</button>
-        </Link>
+        <div className="row">
+          <Button className="col-3 ml-3" color="primary" size="sm">
+            Book
+          </Button>
+          <div className="col-3  ml-1">
+            <Link to={"/dashboard"}>
+              <Button color="danger" size="sm" block>
+                Exit
+              </Button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

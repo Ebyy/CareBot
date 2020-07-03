@@ -42,23 +42,25 @@ const Dashboard = ({ groups, recommended, caregivers }) => {
       </div>
       <br />
       <div>
-        <input type="text" placeholder="Enter Caregiver Name" />
-        <Button
-          size="sm"
-          color="primary"
-          onClick={() => setFindProfile(!findProfile)}
-        >
-          Search
-        </Button>
-        {findProfile && (
-          <Alert isOpen={findProfile} toggle={onDismiss} color="warning">
-            Finds Profile and Populates Caregiver Profile View with Info
-          </Alert>
-        )}
+        <div className="mt-3">
+          <input type="text" placeholder="Enter Caregiver Name" />
+          <button onClick={() => setFindProfile(!findProfile)}>Search</button>
+          {findProfile && (
+            <Alert isOpen={findProfile} toggle={onDismiss} color="warning">
+              Finds Profile and Populates Caregiver Profile View with Info
+            </Alert>
+          )}
+        </div>
+
         <br />
 
-        <Button color="info" size="md" onClick={() => setShowAll(!showAll)}>
-          All Caregivers
+        <Button
+          className="mt-3"
+          color="info"
+          size="md"
+          onClick={() => setShowAll(!showAll)}
+        >
+          View All Caregivers
         </Button>
         {showAll && (
           <div>

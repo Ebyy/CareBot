@@ -1,11 +1,13 @@
 import React from "react";
-import "../Styles.css"
+import "../Styles.css";
 
 export const HomePage = () => (
-  <div className="container">
-    <div style={{ margin:"auto", textAlign: "centre", display: "inline-block" }}>
-      <h1>CareBot</h1>
-      <p>... always here to help</p>
+  <div>
+    <div className="logoBlock">
+      <h2 className="team">Team CIJA</h2>
+      <em><strong>presents</strong></em>
+      <h1 className="title">CareBot</h1>
+      <p><strong>... always here to help</strong></p>
     </div>
   </div>
 );

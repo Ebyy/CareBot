@@ -16,8 +16,8 @@ const defaultState = {
     {
       name: "Professional",
       id: "L2",
-      employeeID: "C4",
-      employeeName: "Jas",
+      employeeID: "C2",
+      employeeName: "John",
       owner: "U01",
     },
   ],
@@ -28,7 +28,7 @@ const defaultState = {
       group: "G1",
       badges: {
         safety: "Q1",
-        health: "H2",
+        health: "H1",
       },
     },
     {
